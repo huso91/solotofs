@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Menu, X, Server } from "lucide-react"; // ✅ icône File Service
+import { Menu, X, Server } from "lucide-react";
+import Link from "next/link";
 
 const phone = "+33423324104";
 
@@ -22,7 +23,7 @@ export default function Header() {
                     : "bg-transparent"
             }`}
         >
-            {/* ─── Barre supérieure : adresse + téléphone ─── */}
+            {/* ─── Barre supérieure ─── */}
             <div className="hidden md:flex items-center justify-end px-6 h-10 border-b border-white/10 text-sm font-semibold tracking-wide text-neutral-300">
                 <div className="flex items-center gap-3">
                     <a
@@ -44,45 +45,47 @@ export default function Header() {
             <div className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex items-center gap-3">
-                    <img
-                        src="/LOGO-BLANC-SOLOTOFS-CARS-PNG-SANS-FOND--e1727252949573.png"
-                        alt="SoloTofs Cars"
-                        className="h-14 w-auto"
-                    />
+                    <Link href="/" className="flex items-center">
+                        <img
+                            src="/LOGO-BLANC-SOLOTOFS-CARS-PNG-SANS-FOND--e1727252949573.png"
+                            alt="SoloTofs Cars"
+                            className="h-14 w-auto cursor-pointer hover:opacity-90 transition-opacity"
+                        />
+                    </Link>
                 </div>
 
                 {/* Navigation desktop */}
                 <nav className="hidden md:flex gap-8 text-sm font-semibold tracking-wide items-center">
-                    <a href="#accueil" className="text-[#3fa0ff] hover:text-[#5ab4ff]">
+                    <a href="/" className="text-[#3fa0ff] hover:text-[#5ab4ff]">
                         ACCUEIL
                     </a>
-                    <a href="#simulateur" className="hover:text-[#3fa0ff]">
+                    <a href="/simulateur" className="hover:text-[#3fa0ff]">
                         SIMULER MES GAINS
                     </a>
-                    <a href="#simulateur" className="hover:text-[#3fa0ff]">
+                    <a href="/#reprogrammation" className="hover:text-[#3fa0ff]">
                         REPROGRAMMATION MOTEUR
                     </a>
-                    <a href="#clef" className="hover:text-[#3fa0ff]">
+                    <a href="/#clef" className="hover:text-[#3fa0ff]">
                         CLEF
                     </a>
 
-                    {/* ✅ Nouveau bouton File Service */}
+                    {/* ✅ Nouveau lien File Service */}
                     <a
-                        href="#upload"
+                        href="/file-service"
                         className="flex items-center gap-1 hover:text-[#3fa0ff] transition-colors"
                     >
                         <Server size={16} className="text-[#3fa0ff]" />
                         FILE SERVICE
                     </a>
 
-                    <a href="#contact" className="hover:text-[#3fa0ff]">
+                    <a href="/#contact" className="hover:text-[#3fa0ff]">
                         CONTACT
                     </a>
                 </nav>
 
                 {/* Bouton principal */}
                 <a
-                    href="#contact"
+                    href="/#contact"
                     className="hidden sm:inline-flex items-center rounded-full bg-[#3fa0ff] text-[#0b0e13] px-5 py-2.5 font-semibold hover:bg-[#5ab4ff] transition-colors"
                 >
                     Nous contacter
@@ -94,28 +97,32 @@ export default function Header() {
                 </button>
             </div>
 
-            {/* ─── Menu mobile déroulant ─── */}
+            {/* ─── Menu mobile ─── */}
             {open && (
                 <div className="md:hidden bg-[#0b0e13]/95 border-t border-white/10 backdrop-blur-sm">
                     <nav className="flex flex-col items-center gap-4 py-6 text-sm font-semibold tracking-wide">
-                        <a href="#accueil" onClick={() => setOpen(false)} className="text-[#3fa0ff]">
+                        <a href="/" onClick={() => setOpen(false)} className="text-[#3fa0ff]">
                             ACCUEIL
                         </a>
-                        <a href="#simulateur" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
+                        <a href="/simulateur" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
                             SIMULER MES GAINS
                         </a>
-                        <a href="#simulateur" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
+                        <a href="/#reprogrammation" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
                             REPROGRAMMATION MOTEUR
                         </a>
-                        <a href="#clef" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
+                        <a href="/#clef" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
                             CLEF
                         </a>
                         {/* File Service mobile */}
-                        <a href="#upload" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff] flex items-center gap-1">
+                        <a
+                            href="/file-service"
+                            onClick={() => setOpen(false)}
+                            className="hover:text-[#3fa0ff] flex items-center gap-1"
+                        >
                             <Server size={16} className="text-[#3fa0ff]" />
                             FILE SERVICE
                         </a>
-                        <a href="#contact" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
+                        <a href="/#contact" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
                             CONTACT
                         </a>
 

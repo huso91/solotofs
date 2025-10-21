@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
+import Nos_engagements from "@/components/nos_engagements";
+import Pret_a_liberer from "@/components/Pret_a_liberer";
+import PresentationSoloTofs from "@/components/presentationsolotofs";
+import Nos_prestations from "@/components/Nos_prestations";
+import EtapesSection from "@/components/EtapesSection";
+import FaqSection from "@/components/FaqSection";
 
 export default function Home() {
   return (
@@ -11,7 +16,7 @@ export default function Home() {
         <Header/>
 
         {/* HERO / BANNIÈRE */}
-        <section className="relative min-h-screen flex items-center pb-16 md:pb-24">
+        <section className="relative h-[100dvh] flex items-center justify-center overflow-hidden">
           {/* Image de fond */}
           <Image
               src="/A_changer_plustard/banniere.webp"
@@ -21,179 +26,74 @@ export default function Home() {
               className="object-cover brightness-[0.75]"
           />
 
-          {/* Overlay pour le contraste */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0b0e13]/40 via-[#0b0e13]/60 to-[#0b0e13]/90"/>
+          {/* Overlay pour contraste */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0b0e13]/40 via-[#0b0e13]/60 to-[#0b0e13]/90" />
 
-          {/* Contenu du texte */}
-          <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl mt-[-6vh] sm:mt-[-8vh] md:mt-[-10vh]">
-              <p className="uppercase tracking-widest text-neutral-300 text-xs sm:text-sm mb-2">
-                SOLOTOFS-CARS
-              </p>
-              <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight uppercase">
-                La passion haute <br/>
-                <span className="text-[#3fa0ff]">performance</span>
-              </h1>
-              <p className="mt-4 text-neutral-300 text-base sm:text-lg uppercase tracking-wide">
-                Garage multi-service • Reprogrammation moteur sur mesure
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                    href="#simulateur"
-                    className="inline-flex items-center rounded-full bg-[#3fa0ff] text-[#0b0e13] px-6 py-3 text-sm font-semibold hover:bg-[#5ab4ff] transition-colors"
-                >
-                  Simuler mes gains
-                </a>
-                <a
-                    href="#contact"
-                    className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold hover:bg-white/10 transition-colors"
-                >
-                  Nous contacter
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-              className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent via-[#0b0e13]/70 to-[#0b0e13]"/>
-
-        </section>
-
-
-        {/* Séparateur visuel entre la bannière et le simulateur */}
-        <div className="relative z-20 -mt-24 sm:-mt-36 md:-mt-48 lg:-mt-56">
-          <div className="absolute inset-x-0 top-0 h-24 sm:h-32 bg-gradient-to-b from-transparent to-[#0b0e13]" />
-          <svg
-              className="absolute bottom-0 w-full text-[#0b0e13]"
-              viewBox="0 0 1440 90"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-                fill="currentColor"
-                d="M0,90 C480,0 960,180 1440,90 L1440,0 L0,0 Z"
-            />
-          </svg>
-        </div>
-
-        <section
-            id="simulateur"
-            className="relative z-30 -mt-10 sm:-mt-14 md:-mt-20 lg:-mt-24 scroll-mt-28 md:scroll-mt-36 pb-24"
-        >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl text-center mx-auto">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
-                Simulez les performances
-              </h2>
-              <p className="mt-4 text-neutral-300 text-base sm:text-lg max-w-2xl mx-auto">
-                Découvrez les gains de puissance et de couple pour votre véhicule grâce à notre
-                simulateur officiel{" "}
-                <span className="text-[#3fa0ff] font-semibold">Tuning-Shop</span>.
-              </p>
-            </div>
-
-            {/* Bloc simulateur avec séparation naturelle */}
-            <div
-                className="mt-12 rounded-2xl overflow-hidden border border-white/10
-                 bg-[#0d1118]/95 backdrop-blur-md shadow-[0_0_35px_rgba(63,160,255,0.25)]
-                 mx-auto max-w-5xl transition-transform duration-500 hover:scale-[1.01]"
-            >
-              <iframe
-                  src="https://tuning-shop.com/iframe/iframe.php?user=7194"
-                  title="Simulateur de gains SoloTofs"
-                  width="100%"
-                  height="700"
-                  scrolling="no"
-                  frameBorder="0"
-                  style={{ border: 0 }}
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION APPEL À L’ACTION */}
-        <section className="py-24 bg-[#0b0e13] relative border-t border-white/10">
-          <div className="max-w-5xl mx-auto px-6 text-center bg-gradient-to-b from-[#0d1118] to-[#0b0e13] border border-[#3fa0ff]/20 rounded-2xl shadow-[0_0_40px_rgba(63,160,255,0.15)] p-10 md:p-16">
-
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-              Prêt à libérer le <span className="text-[#3fa0ff]">véritable potentiel</span> de votre véhicule ?
-            </h2>
-            <p className="mt-4 text-neutral-300 max-w-2xl mx-auto">
-              Rejoignez des centaines de conducteurs satisfaits qui ont optimisé leur véhicule avec SoloTofs-Cars.
-              <br />
-              Performance, fiabilité et sécurité garanties.
+          {/* Contenu principal */}
+          <div className="relative z-10 text-center px-6 sm:px-10 max-w-3xl">
+            <p className="uppercase tracking-widest text-neutral-300 text-xs sm:text-sm md:text-base mb-3">
+              SOLOTOFS-CARS
             </p>
 
-            {/* Boutons d’action */}
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <h1
+                className="
+    font-extrabold uppercase
+    leading-[1.05] md:leading-[1.1] lg:leading-[1.15]
+    text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+    tracking-tight
+    drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]
+    text-balance
+  "
+            >
+              La passion haute <br/>
+              <span className="text-[#3fa0ff]">performance</span>
+            </h1>
+
+
+            <p
+                className="
+        mt-5 text-neutral-300
+        text-sm sm:text-base md:text-lg lg:text-xl
+        uppercase tracking-wide
+      "
+            >
+              Garage multi-service • Reprogrammation moteur sur mesure
+            </p>
+
+            {/* Boutons */}
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a
-                  href="#upload"
-                  className="inline-flex items-center gap-2 bg-[#3fa0ff] text-[#0b0e13] px-8 py-3 rounded-xl font-semibold hover:bg-[#5ab4ff] transition-all shadow-md hover:shadow-[#3fa0ff]/30"
+                  href="/simulateur"
+                  className="inline-flex items-center rounded-full bg-[#3fa0ff] text-[#0b0e13] px-6 py-3 text-sm font-semibold hover:bg-[#5ab4ff] transition-colors"
               >
-                🚗 Envoyer mon fichier ECU
+                Simuler mes gains
               </a>
               <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 border border-[#3fa0ff]/50 text-[#3fa0ff] px-8 py-3 rounded-xl font-semibold hover:bg-[#3fa0ff]/10 transition-all"
+                  className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold hover:bg-white/10 transition-colors"
               >
-                📞 Nous contacter
+                Nous contacter
               </a>
             </div>
-
-            {/* Ligne de confiance */}
-            <div className="mt-10 border-t border-white/10 pt-6 text-neutral-400 text-sm flex flex-col md:flex-row justify-center gap-4">
-              <p>💪 3000+ clients satisfaits</p>
-              <span className="hidden md:inline text-neutral-600">•</span>
-              <p>🔧 50+ partenaires automobiles certifiés</p>
-            </div>
           </div>
+
+          {/* Dégradé bas pour la continuité */}
+          <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent via-[#0b0e13]/70 to-[#0b0e13]" />
         </section>
 
 
-        {/* PRÉSENTATION SOLOTOFS */}
-        <section
-            id="presentation"
-            className="relative py-24 border-t border-white/10 bg-[#0b0e13]"
-        >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Image de présentation */}
-            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[480px] rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(63,160,255,0.2)]">
-              <Image
-                  src="/A_changer_plustard/pres.jpg"
-                  alt="Présentation du garage SoloTofs"
-                  fill
-                  className="object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#0b0e13]/60 via-transparent to-transparent" />
-            </div>
 
-            {/* Texte de présentation */}
-            <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-                L’expertise <span className="text-[#3fa0ff]">SoloTofs</span>
-              </h2>
-              <p className="text-neutral-300 leading-relaxed">
-                Basé à <span className="font-semibold text-white">Gilly-sur-Isère</span>,
-                SoloTofs Cars met à votre service son savoir-faire dans la reprogrammation
-                moteur, la préparation automobile et l’entretien de véhicules de toutes marques.
-              </p>
-              <p className="text-neutral-400 leading-relaxed">
-                Notre atelier allie performance et fiabilité avec du matériel de dernière
-                génération, une approche sur mesure et une passion authentique pour
-                l’automobile. Chaque intervention est étudiée avec précision pour garantir
-                le meilleur équilibre entre puissance, fiabilité et consommation.
-              </p>
-              <div className="pt-2">
-                <a
-                    href="#contact"
-                    className="inline-flex items-center rounded-full bg-[#3fa0ff] px-6 py-3 text-sm font-semibold text-[#0b0e13] hover:bg-[#5ab4ff] transition-colors"
-                >
-                  Nous contacter
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+
+
+
+
+        <Pret_a_liberer />
+
+
+        <PresentationSoloTofs />
+
+
+
 
         {/* SECTION PRÉSENTATION SOLOTOFS */}
         <section
@@ -264,446 +164,15 @@ export default function Home() {
 
 
 
-        {/* SECTION REPROGRAMMATION MOTEUR */}
-        <section
-            id="reprogrammation"
-            className="py-24 border-t border-white/10 bg-[#0b0e13]"
-        >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center mb-12">
-              Nos prestations de <span className="text-[#3fa0ff]">reprogrammation moteur</span>
-            </h2>
-
-            {/* DEUX BLOCS — SUR PLACE / À DISTANCE */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-              {/* Bloc SUR PLACE */}
-              <div className="bg-[#0d1118]/80 border border-white/10 rounded-2xl p-8 shadow-[0_0_25px_rgba(63,160,255,0.15)]">
-                <h3 className="text-2xl font-bold text-[#3fa0ff] mb-4">Reprogrammation sur place</h3>
-                <p className="text-neutral-300 text-sm leading-relaxed mb-8">
-                  Confiez-nous votre véhicule directement dans notre atelier de Gilly-sur-Isère.
-                  Nous réalisons une reprogrammation complète sur mesure, du diagnostic initial à la validation finale sur route.
-                </p>
-
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-[#3fa0ff] font-extrabold text-xl">1.</span>
-                    <p><strong>Diagnostic & lecture du calculateur</strong> — Nous identifions la version du calculateur et sauvegardons le fichier d’origine.</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-[#3fa0ff] font-extrabold text-xl">2.</span>
-                    <p><strong>Optimisation du fichier</strong> — Ajustement des cartographies moteur selon vos besoins (Stage 1, E85, suppression FAP/EGR, etc.).</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-[#3fa0ff] font-extrabold text-xl">3.</span>
-                    <p><strong>Réinjection & test</strong> — Nous réécrivons le fichier dans le calculateur et effectuons un essai routier pour valider le résultat.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bloc À DISTANCE */}
-              <div className="bg-[#0d1118]/80 border border-white/10 rounded-2xl p-8 shadow-[0_0_25px_rgba(63,160,255,0.15)]">
-                <h3 className="text-2xl font-bold text-[#3fa0ff] mb-4">Reprogrammation à distance</h3>
-                <p className="text-neutral-300 text-sm leading-relaxed mb-8">
-                  Vous êtes un garage ou un particulier équipé d’un outil de lecture ECU ?
-                  Profitez de notre service en ligne rapide et professionnel pour obtenir votre fichier optimisé sans vous déplacer.
-                </p>
-
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-[#3fa0ff] font-extrabold text-xl">1.</span>
-                    <p><strong>Lecture du fichier ECU</strong> — Lisez le fichier d’origine de votre véhicule à l’aide de votre interface (Kess, CMD, etc.).</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-[#3fa0ff] font-extrabold text-xl">2.</span>
-                    <p><strong>Envoi via notre formulaire</strong> — Téléversez votre fichier sur notre site avec les informations du véhicule.</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-[#3fa0ff] font-extrabold text-xl">3.</span>
-                    <p><strong>Modification & retour rapide</strong> — Nous modifions le fichier et vous le renvoyons sous quelques heures par email.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-
-        {/* ÉTAPES DE FONCTIONNEMENT (VERSION EN LIGNE) */}
-        <section
-            id="etapes"
-            className="py-24 border-t border-white/10 bg-[#0d1118]"
-        >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-              Comment fonctionne notre service <span className="text-[#3fa0ff]">en ligne</span> ?
-            </h2>
-            <p className="text-neutral-400 max-w-3xl mx-auto mb-16">
-              Vous possédez déjà le fichier d’origine de votre véhicule ? Envoyez-le nous, nos ingénieurs s’occupent du reste.
-              Simple, rapide et 100 % sécurisé.
-            </p>
-
-            {/* Étapes */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Étape 1 */}
-              <div className="relative group bg-[#0b0e13]/90 border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:border-[#3fa0ff]/50 hover:shadow-[0_0_25px_rgba(63,160,255,0.15)]">
-                <div className="text-[#3fa0ff] text-4xl font-extrabold mb-4">1</div>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Lisez votre fichier ECU d’origine
-                </h3>
-                <p className="text-neutral-400 text-sm leading-relaxed">
-                  À l’aide de votre outil de lecture (Kess, Autotuner, CMD, etc.), récupérez le fichier d’origine de votre véhicule.
-                </p>
-              </div>
-
-              {/* Étape 2 */}
-              <div className="relative group bg-[#0b0e13]/90 border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:border-[#3fa0ff]/50 hover:shadow-[0_0_25px_rgba(63,160,255,0.15)]">
-                <div className="text-[#3fa0ff] text-4xl font-extrabold mb-4">2</div>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Envoyez-le via notre formulaire
-                </h3>
-                <p className="text-neutral-400 text-sm leading-relaxed">
-                  Joignez votre fichier ECU avec vos coordonnées et les détails du véhicule.
-                  Notre équipe reçoit instantanément votre demande.
-                </p>
-              </div>
-
-              {/* Étape 3 */}
-              <div className="relative group bg-[#0b0e13]/90 border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:border-[#3fa0ff]/50 hover:shadow-[0_0_25px_rgba(63,160,255,0.15)]">
-                <div className="text-[#3fa0ff] text-4xl font-extrabold mb-4">3</div>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Reprogrammation sur mesure
-                </h3>
-                <p className="text-neutral-400 text-sm leading-relaxed">
-                  Nous analysons et optimisons le fichier selon vos besoins (Stage 1, E85, suppression FAP/EGR, etc.) dans un délai très court.
-                </p>
-              </div>
-
-              {/* Étape 4 */}
-              <div className="relative group bg-[#0b0e13]/90 border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:border-[#3fa0ff]/50 hover:shadow-[0_0_25px_rgba(63,160,255,0.15)]">
-                <div className="text-[#3fa0ff] text-4xl font-extrabold mb-4">4</div>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Réception du fichier modifié
-                </h3>
-                <p className="text-neutral-400 text-sm leading-relaxed">
-                  Vous recevez par mail votre fichier optimisé, prêt à être réinjecté dans votre véhicule.
-                  Assistance disponible en cas de besoin.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-        {/* FILE SERVICE / UPLOAD ECU */}
-        <section id="upload" className="py-24 border-t border-white/10 bg-[#0b0e13]">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            {/* En-tête */}
-            <div className="max-w-3xl text-center mx-auto mb-12">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
-                Service de reprogrammation à distance
-              </h2>
-              <p className="text-neutral-300">
-                Envoyez-nous votre fichier d’origine (.bin / .ori / .zip).
-                Nos techniciens analyseront votre demande et vous contacteront
-                pour valider ensemble le tarif avant toute modification.
-              </p>
-            </div>
-
-            {/* Formulaire principal */}
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#0d1118]/80 p-8 rounded-2xl border border-[#3fa0ff]/20 shadow-lg">
-              {/* Informations personnelles */}
-              <h3 className="col-span-full text-xl font-bold text-[#3fa0ff] flex items-center gap-2">
-                👤 Informations personnelles
-              </h3>
-              <input type="text" placeholder="Nom Prénom" className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3" required />
-              <input type="email" placeholder="Email" className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3" required />
-              <input type="tel" placeholder="Téléphone" className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3" required />
-
-              {/* Informations véhicule */}
-              <h3 className="col-span-full text-xl font-bold text-[#3fa0ff] mt-6">
-                🚗 Informations du véhicule
-              </h3>
-              <input placeholder="Marque" className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3" required />
-              <input placeholder="Modèle" className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3" required />
-              <input placeholder="Année" className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3" required />
-              <input placeholder="Motorisation" className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3" required />
-              <input placeholder="ECU (ex: Bosch EDC17)" className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3" />
-              <input placeholder="Boîte de vitesse (ex: DSG / Manuelle)" className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3" />
-              <input placeholder="Puissance actuelle (ex: 150 ch)" className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3" />
-
-              <select className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3 text-neutral-400" defaultValue="">
-                <option value="" disabled>Outil de lecture</option>
-                <option>Autotuner</option>
-                <option>KESS V2</option>
-                <option>KESS V3</option>
-                <option>K-TAG</option>
-                <option>PCMFlash</option>
-                <option>Autre</option>
-              </select>
-              <input placeholder="Immatriculation ou VIN" className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3 md:col-span-2" />
-
-              {/* Optimisations & services */}
-              <h3 className="col-span-full text-xl font-bold text-[#3fa0ff] mt-6">
-                ⚙️ Optimisations & services
-              </h3>
-
-              <div className="col-span-full space-y-6 text-neutral-300">
-                {/* STAGE 1 */}
-                <div className="bg-[#0b0e13] border border-white/10 rounded-lg p-4">
-                  <label className="flex items-center gap-2 text-white font-semibold">
-                    <input type="checkbox" className="accent-[#3fa0ff]" /> Stage 1
-                  </label>
-                  <p className="ml-6 mt-1 text-xs text-neutral-400">
-                    Optimisation niveau 1 (véhicule strictement d&apos;origine)
-                  </p>
-                  <div className="ml-6 mt-2 text-sm text-neutral-400 space-y-1">
-                    <p className="italic text-[#3fa0ff]">Options supplémentaires pour cette optimisation :</p>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> Stage 1+ — Maximum HP and TQ sans aucune modification</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> EGR OFF</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> CLAPETS OFF</label>
-                  </div>
-                </div>
-
-                {/* STAGE 2 */}
-                <div className="bg-[#0b0e13] border border-white/10 rounded-lg p-4">
-                  <label className="flex items-center gap-2 text-white font-semibold">
-                    <input type="checkbox" className="accent-[#3fa0ff]" /> Stage 2
-                  </label>
-                  <p className="ml-6 mt-1 text-xs text-neutral-400">
-                    Optimisation niveau 2 (Decat&apos; ou Defap&apos; minimum)
-                  </p>
-                  <div className="ml-6 mt-2 text-sm text-neutral-400 space-y-1">
-                    <p className="italic text-[#3fa0ff]">Options supplémentaires pour cette optimisation :</p>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> Stage 2+ — HPFP / Capteur Rail / Injecteurs / FBO</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> EGR OFF — Suppression EGR</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> DPF/OPF/CAT OFF</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> AdBlue OFF — Suppression AdBlue</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> Pop &amp; Bang</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> HardCut (Diesel)</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> Modification Bruit Ralenti (Diesel Bosch seulement)</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> CLAPETS OFF</label>
-                  </div>
-                </div>
-
-                {/* STAGE 3 */}
-                <div className="bg-[#0b0e13] border border-white/10 rounded-lg p-4">
-                  <label className="flex items-center gap-2 text-white font-semibold">
-                    <input type="checkbox" className="accent-[#3fa0ff]" /> Stage 3
-                  </label>
-                  <p className="ml-6 mt-1 text-xs text-neutral-400">
-                    Optimisation niveau 3 (Turbo Hybride minimum)
-                  </p>
-                  <div className="ml-6 mt-2 text-sm text-neutral-400 space-y-1">
-                    <p className="italic text-[#3fa0ff]">Options supplémentaires pour cette optimisation :</p>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> EGR OFF</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> DPF/OPF/CAT OFF</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> AdBlue OFF</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> Pop &amp; Bang</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> HardCut (Diesel)</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> Modification Bruit Ralenti (Diesel Bosch seulement)</label>
-                    <label className="flex gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> CLAPETS OFF</label>
-                  </div>
-                </div>
-
-                {/* AUTRES SERVICES & OPTIONS (liste complète) */}
-                <div className="bg-[#0b0e13] border border-white/10 rounded-lg p-4">
-                  <p className="text-white font-semibold mb-3">Autres services</p>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
-                    {/* demandes principales */}
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="accent-[#3fa0ff]" /> FLEXFUEL/CONVERSION E85
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="accent-[#3fa0ff]" /> GESTION BOITE AUTOMATIQUE (Stage 1/2/3)
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="accent-[#3fa0ff]" /> MULTIMAP VIA MHD
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="accent-[#3fa0ff]" /> GESTION PROGRAMMABLE
-                    </label>
-                    <label className="flex items-center gap-2 sm:col-span-2 lg:col-span-1">
-                      <input type="checkbox" className="accent-[#3fa0ff]" />
-                      Diagnostic/Analyse Log/Vérification Cartographie : <em>Analyse diagnostic</em>
-                    </label>
-
-                    {/* options unitaires */}
-                    <label className="flex items-center gap-2 sm:col-span-2">
-                      <input type="checkbox" className="accent-[#3fa0ff]" />
-                      EGR OFF — <span className="text-neutral-400">Uniquement pour véhicule non fapé d’origine</span>
-                    </label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> EGR+DPF OFF</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> ADBLUE OFF</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> CATA OFF</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> OPF OFF</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> CLAPETS OFF</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> START&amp;STOP OFF</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> POP&amp;BANG</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> IMMO OFF</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="accent-[#3fa0ff]" /> DTC OFF</label>
-                  </div>
-                </div>
-              </div>
-
-              {/* Upload fichier */}
-              <h3 className="col-span-full text-xl font-bold text-[#3fa0ff] mt-8">
-                📁 Upload du fichier d’origine
-              </h3>
-              <input
-                  type="file"
-                  accept=".bin,.ori,.zip"
-                  className="col-span-full bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3 file:mr-4 file:rounded-md file:border-0 file:bg-[#3fa0ff] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-[#0b0e13] hover:file:bg-[#5ab4ff]"
-                  required
-              />
-
-              {/* Notes */}
-              <textarea
-                  placeholder="Informations supplémentaires, remarques, historique..."
-                  rows={4}
-                  className="col-span-full bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-[#3fa0ff]"
-              />
-
-              <p className="col-span-full text-sm text-neutral-400 mt-4">
-                ⚠️ Aucun fichier ne sera modifié sans votre validation du devis final.
-              </p>
-
-              <div className="col-span-full flex justify-end mt-4">
-                <button
-                    type="submit"
-                    className="inline-flex items-center rounded-full bg-[#3fa0ff] text-[#0b0e13] px-8 py-3 text-sm font-semibold hover:bg-[#5ab4ff] transition"
-                >
-                  Envoyer ma demande
-                </button>
-              </div>
-            </form>
-          </div>
-        </section>
+        <Nos_prestations />
 
 
 
 
-        {/* SECTION OUTILS & PARTENAIRES */}
-        <section
-            id="partenaires"
-            className="py-24 border-t border-white/10 bg-[#0b0e13]"
-        >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-              Nos outils & <span className="text-[#3fa0ff]">partenaires de confiance</span>
-            </h2>
-            <p className="text-neutral-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Nous travaillons avec les meilleurs outils du marché pour vous garantir des résultats fiables et durables.
-            </p>
+        <EtapesSection />
 
-            {/* Carrousel centré */}
-            <div className="relative overflow-hidden">
-              <div className="flex gap-16 sm:gap-24 animate-marquee">
-                {/* 1re série de logos */}
-                <img src="/logos/alientech.png" alt="Alientech" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                <img src="/logos/autotuner.png" alt="Autotuner" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                <img src="/logos/magicmotorsport.png" alt="Magic Motorsport" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                <img src="/logos/kessv2.png" alt="KessV2" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                <img src="/logos/cmdflash.png" alt="CMD Flash" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                <img src="/logos/tuningshop.png" alt="Tuning Shop" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
 
-                {/* 2e série (dupliquée pour la boucle fluide) */}
-                <img src="/logos/alientech.png" alt="Alientech" className="h-10 sm:h-12 object-contain opacity-80" />
-                <img src="/logos/autotuner.png" alt="Autotuner" className="h-10 sm:h-12 object-contain opacity-80" />
-                <img src="/logos/magicmotorsport.png" alt="Magic Motorsport" className="h-10 sm:h-12 object-contain opacity-80" />
-                <img src="/logos/kessv2.png" alt="KessV2" className="h-10 sm:h-12 object-contain opacity-80" />
-                <img src="/logos/cmdflash.png" alt="CMD Flash" className="h-10 sm:h-12 object-contain opacity-80" />
-                <img src="/logos/tuningshop.png" alt="Tuning Shop" className="h-10 sm:h-12 object-contain opacity-80" />
-              </div>
 
-              {/* Ombres dégradées */}
-              <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[#0b0e13] to-transparent pointer-events-none"></div>
-              <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[#0b0e13] to-transparent pointer-events-none"></div>
-            </div>
-
-            <p className="mt-16 text-neutral-400 text-sm sm:text-base">
-              🔧 Des partenaires techniques reconnus dans le monde entier.
-            </p>
-          </div>
-        </section>
-
-        {/* SECTION FAQ */}
-        <section
-            id="faq"
-            className="py-24 border-t border-white/10 bg-[#0d1118]"
-        >
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center mb-4">
-              Foire aux <span className="text-[#3fa0ff]">questions</span>
-            </h2>
-            <p className="text-neutral-400 text-center max-w-2xl mx-auto mb-12">
-              Voici les réponses aux questions les plus fréquentes sur nos prestations de reprogrammation moteur et nos services.
-            </p>
-
-            <div className="space-y-4">
-              {/* QUESTION 1 */}
-              <details className="group border border-white/10 rounded-xl bg-[#0b0e13]/80 p-5 transition-all hover:border-[#3fa0ff]/40">
-                <summary className="flex justify-between items-center cursor-pointer font-semibold text-white text-lg list-none">
-                  La reprogrammation moteur est-elle risquée ?
-                  <span className="text-[#3fa0ff] text-2xl leading-none group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <p className="mt-3 text-neutral-400 text-sm leading-relaxed">
-                  Non, lorsqu’elle est réalisée par un professionnel qualifié avec les bons outils, elle ne présente aucun risque.
-                  Chez <strong>SoloTofs Cars</strong>, nous conservons toujours le fichier d’origine afin de pouvoir revenir en arrière à tout moment.
-                </p>
-              </details>
-
-              {/* QUESTION 2 */}
-              <details className="group border border-white/10 rounded-xl bg-[#0b0e13]/80 p-5 transition-all hover:border-[#3fa0ff]/40">
-                <summary className="flex justify-between items-center cursor-pointer font-semibold text-white text-lg list-none">
-                  Combien de temps dure une reprogrammation sur place ?
-                  <span className="text-[#3fa0ff] text-2xl leading-none group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <p className="mt-3 text-neutral-400 text-sm leading-relaxed">
-                  En moyenne entre <strong>1h30 et 2h</strong> selon le véhicule et le type de calculateur.
-                  Nos techniciens effectuent un diagnostic complet avant et après la modification pour garantir un résultat optimal.
-                </p>
-              </details>
-
-              {/* QUESTION 3 */}
-              <details className="group border border-white/10 rounded-xl bg-[#0b0e13]/80 p-5 transition-all hover:border-[#3fa0ff]/40">
-                <summary className="flex justify-between items-center cursor-pointer font-semibold text-white text-lg list-none">
-                  Puis-je revenir à la configuration d’origine ?
-                  <span className="text-[#3fa0ff] text-2xl leading-none group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <p className="mt-3 text-neutral-400 text-sm leading-relaxed">
-                  Oui, absolument. Nous sauvegardons systématiquement votre fichier d’origine avant toute intervention.
-                  Vous pouvez le faire remettre à tout moment sur simple demande.
-                </p>
-              </details>
-
-              {/* QUESTION 4 */}
-              <details className="group border border-white/10 rounded-xl bg-[#0b0e13]/80 p-5 transition-all hover:border-[#3fa0ff]/40">
-                <summary className="flex justify-between items-center cursor-pointer font-semibold text-white text-lg list-none">
-                  Quels sont les délais pour les fichiers envoyés à distance ?
-                  <span className="text-[#3fa0ff] text-2xl leading-none group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <p className="mt-3 text-neutral-400 text-sm leading-relaxed">
-                  Les fichiers envoyés via le formulaire en ligne sont traités dans un délai moyen de <strong>1 à 3 heures</strong> selon la charge du jour.
-                  Vous recevez votre fichier modifié directement par e-mail.
-                </p>
-              </details>
-
-              {/* QUESTION 5 */}
-              <details className="group border border-white/10 rounded-xl bg-[#0b0e13]/80 p-5 transition-all hover:border-[#3fa0ff]/40">
-                <summary className="flex justify-between items-center cursor-pointer font-semibold text-white text-lg list-none">
-                  La reprogrammation annule-t-elle la garantie constructeur ?
-                  <span className="text-[#3fa0ff] text-2xl leading-none group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <p className="mt-3 text-neutral-400 text-sm leading-relaxed">
-                  Techniquement, une reprogrammation peut être détectée par le constructeur.
-                  Cependant, nos réglages sont <strong>réversibles</strong> et réalisés dans le respect des tolérances mécaniques pour préserver la fiabilité du moteur.
-                </p>
-              </details>
-            </div>
-          </div>
-        </section>
 
         {/* SECTION DOUBLES DE CLÉS */}
         <section id="clef" className="py-24 bg-[#0d1118] border-t border-white/10">
@@ -714,7 +183,7 @@ export default function Home() {
             </h2>
             <p className="mt-4 text-neutral-300 max-w-2xl mx-auto">
               SoloTofs Cars réalise vos <span className="text-[#3fa0ff] font-semibold">doubles de clés, reprogrammations et réparations</span>
-              de clés automobiles toutes marques. Intervention rapide, sur place ou à distance selon le type de clé.
+               de clés automobiles toutes marques. Intervention rapide, sur place ou à distance selon le type de clé.
             </p>
 
             {/* Icônes + services */}
@@ -763,6 +232,63 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+
+
+        {/* SECTION OUTILS & PARTENAIRES */}
+        <section
+            id="partenaires"
+            className="py-24 border-t border-white/10 bg-[#0b0e13]"
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+              Nos outils & <span className="text-[#3fa0ff]">partenaires de confiance</span>
+            </h2>
+            <p className="text-neutral-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+              Nous travaillons avec les meilleurs outils du marché pour vous garantir des résultats fiables et durables.
+            </p>
+
+            {/* Carrousel centré */}
+            <div className="relative overflow-hidden">
+              <div className="flex gap-16 sm:gap-24 animate-marquee">
+                {/* 1re série de logos */}
+                <img src="/logos/abrites.png" alt="Abrites" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                <img src="/logos/alientech.jpg" alt="Alientech" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                <img src="/logos/autel.png" alt="Autel" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                <img src="/logos/auto_tuner_logo.webp" alt="Auto Tuner" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                <img src="/logos/logo_flex_magic_sport.png" alt="Flex Magic Motorsport" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                <img src="/logos/mwtools.jpg" alt="MW Tools" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                <img src="/logos/xhorse.jpg" alt="Xhorse" className="h-10 sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+
+                {/* 2e série dupliquée pour la boucle fluide */}
+                <img src="/logos/abrites.png" alt="Abrites" className="h-10 sm:h-12 object-contain opacity-80" />
+                <img src="/logos/alientech.jpg" alt="Alientech" className="h-10 sm:h-12 object-contain opacity-80" />
+                <img src="/logos/autel.png" alt="Autel" className="h-10 sm:h-12 object-contain opacity-80" />
+                <img src="/logos/auto_tuner_logo.webp" alt="Auto Tuner" className="h-10 sm:h-12 object-contain opacity-80" />
+                <img src="/logos/logo_flex_magic_sport.png" alt="Flex Magic Motorsport" className="h-10 sm:h-12 object-contain opacity-80" />
+                <img src="/logos/mwtools.jpg" alt="MW Tools" className="h-10 sm:h-12 object-contain opacity-80" />
+                <img src="/logos/xhorse.jpg" alt="Xhorse" className="h-10 sm:h-12 object-contain opacity-80" />
+              </div>
+
+              {/* Ombres dégradées */}
+              <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[#0b0e13] to-transparent pointer-events-none"></div>
+              <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[#0b0e13] to-transparent pointer-events-none"></div>
+            </div>
+
+
+            <p className="mt-16 text-neutral-400 text-sm sm:text-base">
+              🔧 Des partenaires techniques reconnus dans le monde entier.
+            </p>
+          </div>
+        </section>
+
+        <Nos_engagements />
+
+
+
+
+        <FaqSection />
+
 
 
         {/* SECTION CONTACT */}
@@ -886,6 +412,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+
 
 
         <Footer />
