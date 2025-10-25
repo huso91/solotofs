@@ -42,7 +42,8 @@ export default function Simulateur() {
                             src="https://tuning-shop.com/iframe/iframe.php?user=7194"
                             title="Simulateur de gains SoloTofs"
                             width="100%"
-                            height="900"
+                            className="w-full min-h-[900px] h-auto"
+
                             scrolling="no"
                             frameBorder="0"
                             style={{ border: 0 }}
