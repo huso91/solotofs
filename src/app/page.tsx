@@ -7,6 +7,7 @@ import PresentationSoloTofs from "@/components/presentationsolotofs";
 import Nos_prestations from "@/components/Nos_prestations";
 import EtapesSection from "@/components/EtapesSection";
 import FaqSection from "@/components/FaqSection";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -69,7 +70,7 @@ export default function Home() {
                 Simuler mes gains
               </a>
               <a
-                  href="#contact"
+                  href="/#contact"
                   className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold hover:bg-white/10 transition-colors"
               >
                 Nous contacter
@@ -292,59 +293,19 @@ export default function Home() {
 
 
         {/* SECTION CONTACT */}
-        <section
-            id="contact"
-            className="py-24 border-t border-white/10 bg-[#0b0e13]"
-        >
+        <section id="contact" className="py-24 border-t border-white/10 bg-[#0b0e13]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center mb-4">
               Nous <span className="text-[#3fa0ff]">contacter</span>
             </h2>
             <p className="text-neutral-400 text-center max-w-2xl mx-auto mb-12">
-              Une question, un devis ou une demande spécifique ?
-              Remplissez le formulaire ou contactez-nous directement.
+              Une question, un devis ou une demande spécifique ? Remplissez le formulaire
+              ou contactez-nous directement.
             </p>
 
-            {/* Contenu principal : form + infos */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* FORMULAIRE DE CONTACT */}
-              <form className="space-y-4 bg-[#0d1118]/80 p-6 rounded-2xl border border-[#3fa0ff]/20 shadow-[0_0_25px_rgba(63,160,255,0.15)]">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input
-                      type="text"
-                      placeholder="Nom Prénom"
-                      className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3 w-full outline-none focus:ring-2 focus:ring-[#3fa0ff]"
-                      required
-                  />
-                  <input
-                      type="email"
-                      placeholder="Email"
-                      className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3 w-full outline-none focus:ring-2 focus:ring-[#3fa0ff]"
-                      required
-                  />
-                </div>
-
-                <input
-                    type="tel"
-                    placeholder="Téléphone"
-                    className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3 w-full outline-none focus:ring-2 focus:ring-[#3fa0ff]"
-                    required
-                />
-
-                <textarea
-                    rows={5}
-                    placeholder="Votre message..."
-                    className="bg-[#0b0e13] border border-white/10 rounded-lg px-4 py-3 w-full outline-none focus:ring-2 focus:ring-[#3fa0ff]"
-                    required
-                ></textarea>
-
-                <button
-                    type="submit"
-                    className="inline-flex items-center justify-center rounded-full bg-[#3fa0ff] text-[#0b0e13] font-semibold px-6 py-3 text-sm hover:bg-[#5ab4ff] transition-colors"
-                >
-                  Envoyer le message
-                </button>
-              </form>
+              {/* FORMULAIRE */}
+              <ContactForm />
 
               {/* INFOS DE CONTACT */}
               <div className="flex flex-col justify-center space-y-6 text-neutral-300">
@@ -365,8 +326,11 @@ export default function Home() {
                   </p>
                   <p>
                     📧{" "}
-                    <a href="mailto:contact@solotofscars.fr" className="text-[#3fa0ff] hover:underline">
-                      contact@solotofscars.fr
+                    <a
+                        href="mailto:solotofs.cars@gmail.com"
+                        className="text-[#3fa0ff] hover:underline"
+                    >
+                      solotofs.cars@gmail.com
                     </a>
                   </p>
                 </div>
@@ -392,6 +356,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
 
         {/* ZONE DESSERVIE / MAP SOLOTOFS CARS */}
         <section className="px-6 sm:px-10 py-16 bg-white text-black">

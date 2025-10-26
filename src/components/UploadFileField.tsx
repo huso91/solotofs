@@ -57,6 +57,7 @@ export default function UploadFileField({
     onUploadComplete: (url: string) => void;
 }) {
     const [fileUrl, setFileUrl] = useState<string | null>(null);
+    const [isUploading, setIsUploading] = useState(false);
     const [isUploaded, setIsUploaded] = useState(false);
 
     return (
@@ -65,36 +66,52 @@ export default function UploadFileField({
                 📁 Upload du fichier d’origine (.bin / .ori / .zip)
             </p>
 
-            <div className="flex flex-col items-center gap-3 w-full">
+            <div className="flex flex-col items-center w-full gap-3">
                 {!isUploaded ? (
-                    <UploadButton<OurFileRouter, any>
-                        endpoint="fileUploader"
-                        appearance={{
-                            button:
-                                "bg-[#3fa0ff] text-[#0b0e13] px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold hover:bg-[#5ab4ff] transition text-lg sm:text-base w-full sm:w-auto",
-                            container: "flex flex-col items-center gap-2 w-full max-w-xs sm:max-w-md",
-                            allowedContent: "text-neutral-400 text-xs sm:text-sm text-center",
-                        }}
-                        content={{
-                            button: (opts) => (opts?.ready ? "📂" : "Préparation..."),
-                            allowedContent: (opts) =>
-                                opts?.isUploading
-                                    ? "⏳ Upload en cours..."
-                                    : "Fichiers autorisés : .bin, .ori, .zip (max 8 MB)",
-                        }}
-                        onClientUploadComplete={(res: any) => {
-                            if (res && res[0]?.url) {
-                                const url = res[0].url;
-                                console.log("✅ URL du fichier :", url);
-                                setFileUrl(url);
-                                setIsUploaded(true);
-                                onUploadComplete(url);
-                            }
-                        }}
-                        onUploadError={(error: any) =>
-                            alert(`Erreur lors de l'upload : ${error.message}`)
-                        }
-                    />
+                    <div className="w-full max-w-xs sm:max-w-sm md:max-w-md">
+                        <UploadButton<OurFileRouter, any>
+                            endpoint="fileUploader"
+                            appearance={{
+                                // on cache complètement le style interne de UploadThing
+                                container: "relative flex justify-center",
+                                button:
+                                    "hidden", // on masque le bouton interne
+                            }}
+                            content={{
+                                button: () => null,
+                            }}
+                            onClientUploadComplete={(res: any) => {
+                                if (res && res[0]?.url) {
+                                    const url = res[0].url;
+                                    setFileUrl(url);
+                                    setIsUploaded(true);
+                                    setIsUploading(false);
+                                    onUploadComplete(url);
+                                }
+                            }}
+                            onUploadBegin={() => setIsUploading(true)}
+                            onUploadError={(error: any) => {
+                                alert(`Erreur lors de l'upload : ${error.message}`);
+                                setIsUploading(false);
+                            }}
+                        />
+
+                        {/* ✅ Notre bouton 100% custom */}
+                        <button
+                            type="button"
+                            className="w-full text-center bg-[#3fa0ff] text-[#0b0e13] py-3 rounded-lg font-semibold hover:bg-[#5ab4ff] transition text-base sm:text-lg shadow-md"
+                            onClick={() => {
+                                // on simule un clic sur l’input natif d’UploadThing
+                                const input = document.querySelector(
+                                    'input[type="file"]'
+                                ) as HTMLInputElement;
+                                input?.click();
+                            }}
+                            disabled={isUploading}
+                        >
+                            {isUploading ? "⏳ Upload en cours..." : "📂 Sélectionner un fichier"}
+                        </button>
+                    </div>
                 ) : (
                     <div className="bg-[#17202b] px-6 py-4 rounded-lg border border-[#3fa0ff]/40 text-[#3fa0ff] text-sm sm:text-base w-full sm:w-auto">
                         ✅ Fichier chargé avec succès !

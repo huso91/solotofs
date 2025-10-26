@@ -5,6 +5,7 @@ import Nos_prestations from "@/components/Nos_prestations";
 import EtapesSection from "@/components/EtapesSection";
 import Nos_engagements from "@/components/nos_engagements";
 import FaqSection from "@/components/FaqSection";
+import Pret_a_liberer from "@/components/Pret_a_liberer";
 
 export default function Simulateur() {
     return (
@@ -60,6 +61,9 @@ export default function Simulateur() {
             <Nos_engagements />
 
             <FaqSection />
+
+            <Pret_a_liberer />
+
 
             <Footer />
         </div>

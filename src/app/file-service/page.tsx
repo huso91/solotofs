@@ -9,6 +9,7 @@ import EtapesSection from "@/components/EtapesSection";
 import Nos_engagements from "@/components/nos_engagements";
 import FaqSection from "@/components/FaqSection";
 import UploadFileField from "@/components/UploadFileField";
+import Pret_a_liberer from "@/components/Pret_a_liberer";
 
 
 export default function FileService() {
@@ -316,16 +317,24 @@ export default function FileService() {
                         </div>
 
                         {/* Upload fichier */}
-                        {/* Upload fichier */}
-                        <h3 className="col-span-full text-xl font-bold text-[#3fa0ff] mt-8">📁 Upload du fichier
-                            d’origine</h3>
-                        <input type="hidden" name="fichier_url"/>
-                        <UploadFileField
-                            onUploadComplete={(url) => {
-                                const hidden = document.querySelector<HTMLInputElement>('input[name="fichier_url"]');
-                                if (hidden) hidden.value = url;
-                            }}
-                        />
+                        <h3 className="col-span-full text-xl font-bold text-[#3fa0ff] mt-8 text-center">
+                            📁 Upload du fichier d’origine
+                        </h3>
+
+                        <div className="col-span-full flex justify-center">
+                            <input type="hidden" name="fichier_url" />
+                            <div className="w-full max-w-md">
+                                <UploadFileField
+                                    onUploadComplete={(url) => {
+                                        const hidden = document.querySelector<HTMLInputElement>(
+                                            'input[name="fichier_url"]'
+                                        );
+                                        if (hidden) hidden.value = url;
+                                    }}
+                                />
+                            </div>
+                        </div>
+
 
 
                         {/* Notes */}
@@ -366,6 +375,9 @@ export default function FileService() {
             <Nos_engagements/>
 
             <FaqSection />
+
+            <Pret_a_liberer />
+
 
             <Footer/>
         </div>
