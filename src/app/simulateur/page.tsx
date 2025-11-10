@@ -38,34 +38,37 @@ export default function Simulateur() {
                         <span className="text-[#3fa0ff] font-semibold">Tuning-Shop</span>.
                     </p>
 
-                    <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#0d1118]/95 backdrop-blur-md shadow-[0_0_35px_rgba(63,160,255,0.25)] transition-transform duration-500 hover:scale-[1.01]">
+                    <div
+                        className="rounded-2xl overflow-visible border border-white/10 bg-[#0d1118]/95 backdrop-blur-md shadow-[0_0_35px_rgba(63,160,255,0.25)] transition-transform duration-500 hover:scale-[1.01]">
                         <iframe
                             src="https://tuning-shop.com/iframe/iframe.php?user=7194"
                             title="Simulateur de gains SoloTofs"
-                            width="100%"
-                            className="w-full min-h-[900px] h-auto"
-
-                            scrolling="no"
+                            className="w-full h-[calc(100vh+2000px)] sm:h-[calc(100vh+2500px)]"
                             frameBorder="0"
-                            style={{ border: 0 }}
+                            scrolling="yes"
+                            style={{
+                                border: 0,
+                                minHeight: "100vh",
+                            }}
                         />
                     </div>
+
                 </div>
             </section>
 
             {/* === SECTIONS AJOUTÉES === */}
-            <Nos_prestations />
+            <Nos_prestations/>
 
-            <EtapesSection />
+            <EtapesSection/>
 
-            <Nos_engagements />
+            <Nos_engagements/>
 
-            <FaqSection />
+            <FaqSection/>
 
-            <Pret_a_liberer />
+            <Pret_a_liberer/>
 
 
-            <Footer />
+            <Footer/>
         </div>
     );
 }
