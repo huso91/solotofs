@@ -85,7 +85,7 @@ export default function Footer() {
                     © {new Date().getFullYear()} SoloTofs Cars — Tous droits réservés. <br />
                     Site web & référencement réalisés par{" "}
                     <a
-                        href="https://www.webhuservices.fr"
+                        href="https://mon-site-two.vercel.app/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-[#3fa0ff] hover:underline font-semibold"
