@@ -1,98 +1,83 @@
+import { BatteryCharging, Car, CircleGauge, Disc3, Fan, Wrench } from "lucide-react";
+
+const services = [
+    {
+        icon: Wrench,
+        title: "Entretien courant",
+        text: "Vidange, filtres, niveaux, contrôle visuel et suivi des périodicités constructeur.",
+    },
+    {
+        icon: Disc3,
+        title: "Freinage",
+        text: "Plaquettes, disques, liquide de frein et contrôle complet du système de sécurité.",
+    },
+    {
+        icon: Car,
+        title: "Pneumatiques",
+        text: "Montage, équilibrage, permutation, réparation et remplacement de pneus toutes marques.",
+    },
+    {
+        icon: CircleGauge,
+        title: "Diagnostic auto",
+        text: "Lecture défauts, recherche de panne, contrôle des organes mécaniques et électriques.",
+    },
+    {
+        icon: BatteryCharging,
+        title: "Batterie & démarrage",
+        text: "Contrôle batterie, alternateur, démarreur et remplacement si nécessaire.",
+    },
+    {
+        icon: Fan,
+        title: "Climatisation",
+        text: "Contrôle, recharge, désinfection et diagnostic du circuit de climatisation.",
+    },
+];
+
 export default function Nos_prestations() {
     return (
-        <section
-            id="reprogrammation"
-            className="py-24 border-t border-white/10 bg-[#0b0e13]"
-        >
+        <section id="prestations" className="py-24 border-t border-white/10 bg-[#0b0e13]">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                {/* Titre principal */}
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center mb-12">
-                    Nos prestations de{" "}
-                    <span className="text-[#3fa0ff]">reprogrammation moteur</span>
-                </h2>
+                <div className="text-center max-w-3xl mx-auto mb-14">
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+                        Nos prestations de <span className="text-[#3fa0ff]">mécanique automobile</span>
+                    </h2>
+                    <p className="text-neutral-400 leading-relaxed">
+                        SoloTofs Cars prend en charge l'entretien et les réparations de votre véhicule
+                        avec une approche claire : diagnostic sérieux, devis expliqué et intervention soignée.
+                    </p>
+                </div>
 
-                {/* Conteneur des deux blocs */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    {/* Bloc — Sur place */}
-                    <div className="bg-[#0d1118]/80 border border-white/10 rounded-2xl p-8 shadow-[0_0_25px_rgba(63,160,255,0.15)]">
-                        <h3 className="text-2xl font-bold text-[#3fa0ff] mb-4">
-                            Reprogrammation sur place
-                        </h3>
-                        <p className="text-neutral-300 text-sm leading-relaxed mb-8">
-                            Confiez-nous votre véhicule directement dans notre atelier de{" "}
-                            <strong>Gilly-sur-Isère</strong>. Nous réalisons une
-                            reprogrammation complète sur mesure, du diagnostic initial à la
-                            validation finale sur route.
-                        </p>
-
-                        <div className="space-y-4 text-neutral-300 text-sm">
-                            <div className="flex items-start gap-3">
-                                <span className="text-[#3fa0ff] font-extrabold text-xl">1.</span>
-                                <p>
-                                    <strong>Diagnostic & lecture du calculateur</strong> — Nous
-                                    identifions la version du calculateur et sauvegardons le
-                                    fichier d’origine.
-                                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {services.map((service) => {
+                        const Icon = service.icon;
+                        return (
+                            <div
+                                key={service.title}
+                                className="bg-[#0d1118]/80 border border-white/10 rounded-2xl p-7 hover:border-[#3fa0ff]/40 transition-all"
+                            >
+                                <Icon className="w-9 h-9 text-[#3fa0ff] mb-4" />
+                                <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
+                                <p className="text-neutral-400 text-sm leading-relaxed">{service.text}</p>
                             </div>
+                        );
+                    })}
+                </div>
 
-                            <div className="flex items-start gap-3">
-                                <span className="text-[#3fa0ff] font-extrabold text-xl">2.</span>
-                                <p>
-                                    <strong>Optimisation du fichier</strong> — Ajustement des
-                                    cartographies moteur selon vos besoins (Stage 1, E85,
-                                    suppression FAP/EGR, etc.).
-                                </p>
-                            </div>
-
-                            <div className="flex items-start gap-3">
-                                <span className="text-[#3fa0ff] font-extrabold text-xl">3.</span>
-                                <p>
-                                    <strong>Réinjection & test</strong> — Nous réécrivons le
-                                    fichier dans le calculateur et effectuons un essai routier
-                                    pour valider le résultat.
-                                </p>
-                            </div>
-                        </div>
+                <div className="mt-14 bg-[#0d1118] border border-[#3fa0ff]/20 rounded-2xl p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <p className="text-[#3fa0ff] text-3xl font-extrabold">01</p>
+                        <h3 className="text-white font-semibold mt-2">Contrôle avant travaux</h3>
+                        <p className="text-neutral-400 text-sm mt-2">On identifie le besoin réel avant de remplacer.</p>
                     </div>
-
-                    {/* Bloc — À distance */}
-                    <div className="bg-[#0d1118]/80 border border-white/10 rounded-2xl p-8 shadow-[0_0_25px_rgba(63,160,255,0.15)]">
-                        <h3 className="text-2xl font-bold text-[#3fa0ff] mb-4">
-                            Reprogrammation à distance
-                        </h3>
-                        <p className="text-neutral-300 text-sm leading-relaxed mb-8">
-                            Vous êtes un garage ou un particulier équipé d’un outil de lecture
-                            ECU ? Profitez de notre service en ligne rapide et professionnel
-                            pour obtenir votre fichier optimisé sans vous déplacer.
-                        </p>
-
-                        <div className="space-y-4 text-neutral-300 text-sm">
-                            <div className="flex items-start gap-3">
-                                <span className="text-[#3fa0ff] font-extrabold text-xl">1.</span>
-                                <p>
-                                    <strong>Lecture du fichier ECU</strong> — Lisez le fichier
-                                    d’origine de votre véhicule à l’aide de votre interface (Kess,
-                                    CMD, etc.).
-                                </p>
-                            </div>
-
-                            <div className="flex items-start gap-3">
-                                <span className="text-[#3fa0ff] font-extrabold text-xl">2.</span>
-                                <p>
-                                    <strong>Envoi via notre formulaire</strong> — Téléversez votre
-                                    fichier sur notre site avec les informations du véhicule.
-                                </p>
-                            </div>
-
-                            <div className="flex items-start gap-3">
-                                <span className="text-[#3fa0ff] font-extrabold text-xl">3.</span>
-                                <p>
-                                    <strong>Modification & retour rapide</strong> — Nous modifions
-                                    le fichier et vous le renvoyons sous quelques heures par
-                                    email.
-                                </p>
-                            </div>
-                        </div>
+                    <div>
+                        <p className="text-[#3fa0ff] text-3xl font-extrabold">02</p>
+                        <h3 className="text-white font-semibold mt-2">Devis clair</h3>
+                        <p className="text-neutral-400 text-sm mt-2">Vous validez le prix et les pièces avant intervention.</p>
+                    </div>
+                    <div>
+                        <p className="text-[#3fa0ff] text-3xl font-extrabold">03</p>
+                        <h3 className="text-white font-semibold mt-2">Restitution expliquée</h3>
+                        <p className="text-neutral-400 text-sm mt-2">On vous indique ce qui a été fait et les points à surveiller.</p>
                     </div>
                 </div>
             </div>

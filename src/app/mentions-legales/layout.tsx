@@ -3,12 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Mentions légales | SoloTofs Cars",
     description:
-        "Mentions légales du site SoloTofs Cars – Garage automobile et service de reprogrammation moteur à Gilly-sur-Isère (Savoie). Informations sur l’éditeur, l’hébergeur et les droits légaux.",
+        "Mentions légales du site SoloTofs Cars, garage automobile à Gilly-sur-Isère en Savoie.",
     keywords: [
         "mentions légales solotofs cars",
         "solotofs cars",
         "garage automobile savoie",
-        "reprogrammation moteur savoie",
         "mécanique gilly sur isère",
         "garage albertville",
         "garage gilly-sur-isère",
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Mentions légales | SoloTofs Cars",
         description:
-            "Consultez les mentions légales du site SoloTofs Cars, garage automobile multi-service à Gilly-sur-Isère : reprogrammation moteur, mécanique générale, entretien et diagnostics.",
+            "Consultez les mentions légales du site SoloTofs Cars, garage automobile à Gilly-sur-Isère.",
         url: "https://solotofs-cars.fr/mentions-legales",
         siteName: "SoloTofs Cars",
         images: [
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
                 url: "https://solotofs-cars.fr/shareimage.webp",
                 width: 1200,
                 height: 630,
-                alt: "SoloTofs Cars – Mentions légales",
+                alt: "SoloTofs Cars - Mentions légales",
             },
         ],
     },
@@ -34,13 +33,12 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary_large_image",
     },
-    robots:
-        "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
 };
 
 export default function MentionsLegalesLayout({
-                                                  children,
-                                              }: {
+    children,
+}: {
     children: React.ReactNode;
 }) {
     return <>{children}</>;

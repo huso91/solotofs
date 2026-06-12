@@ -3,19 +3,17 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Politique de Confidentialité | SoloTofs Cars",
     description:
-        "Découvrez comment SoloTofs Cars collecte, utilise et protège vos données personnelles dans le respect du RGPD. Confidentialité et sécurité garanties.",
+        "Découvrez comment SoloTofs Cars collecte, utilise et protège vos données personnelles dans le respect du RGPD.",
     keywords: [
         "politique de confidentialité SoloTofs Cars",
-        "RGPD reprogrammation moteur",
         "protection des données automobile",
-        "sécurité fichier ECU",
         "garage Gilly-sur-Isère confidentialité",
         "données personnelles Savoie",
     ],
     openGraph: {
         title: "Politique de Confidentialité | SoloTofs Cars",
         description:
-            "SoloTofs Cars protège vos données personnelles conformément au RGPD. Aucune utilisation commerciale, stockage sécurisé, suppression à la demande.",
+            "SoloTofs Cars protège vos données personnelles conformément au RGPD.",
         url: "https://solotofs-cars.fr/politique-confidentialite",
         siteName: "SoloTofs Cars",
         images: [
@@ -23,7 +21,7 @@ export const metadata: Metadata = {
                 url: "https://solotofs-cars.fr/shareimage.webp",
                 width: 1200,
                 height: 630,
-                alt: "SoloTofs Cars – Politique de confidentialité",
+                alt: "SoloTofs Cars - Politique de confidentialité",
             },
         ],
     },
@@ -37,8 +35,8 @@ export const metadata: Metadata = {
 };
 
 export default function PolitiqueConfidentialiteLayout({
-                                                           children,
-                                                       }: {
+    children,
+}: {
     children: React.ReactNode;
 }) {
     return <>{children}</>;

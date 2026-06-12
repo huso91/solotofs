@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Menu, X, Server } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
 const phone = "+33423324104";
@@ -15,6 +15,14 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handle);
     }, []);
 
+    const links = [
+        { href: "/", label: "ACCUEIL" },
+        { href: "/#prestations", label: "PRESTATIONS" },
+        { href: "/#etapes", label: "PRISE EN CHARGE" },
+        { href: "/#engagements", label: "ENGAGEMENTS" },
+        { href: "/#contact", label: "CONTACT" },
+    ];
+
     return (
         <header
             className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
@@ -23,116 +31,77 @@ export default function Header() {
                     : "bg-transparent"
             }`}
         >
-            {/* ─── Barre supérieure ─── */}
             <div className="hidden md:flex items-center justify-end px-6 h-10 border-b border-white/10 text-sm font-semibold tracking-wide text-neutral-300">
                 <div className="flex items-center gap-3">
                     <a
-                        href="https://maps.google.com/?q=44+Impasse+Ampère,+73200+Gilly-sur-Isère"
+                        href="https://maps.google.com/?q=44+Impasse+Ampere,+73200+Gilly-sur-Isere"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-[#3fa0ff] transition-colors"
                     >
-                        📍 44 Impasse Ampère, 73200 Gilly-sur-Isère
+                        44 Impasse Ampere, 73200 Gilly-sur-Isere
                     </a>
-                    <span className="text-neutral-500">•</span>
+                    <span className="text-neutral-500">-</span>
                     <a href={`tel:${phone}`} className="hover:text-[#3fa0ff] transition-colors">
-                        📞 +33 4 23 32 41 04
+                        +33 4 23 32 41 04
                     </a>
                 </div>
             </div>
 
-            {/* ─── Barre principale ─── */}
             <div className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
-                {/* Logo */}
-                <div className="flex items-center gap-3">
-                    <Link href="/" className="flex items-center">
-                        <img
-                            src="/LOGO-BLANC-SOLOTOFS-CARS-PNG-SANS-FOND--e1727252949573.png"
-                            alt="SoloTofs Cars"
-                            className="h-14 w-auto cursor-pointer hover:opacity-90 transition-opacity"
-                        />
-                    </Link>
-                </div>
+                <Link href="/" className="flex items-center">
+                    <img
+                        src="/LOGO-BLANC-SOLOTOFS-CARS-PNG-SANS-FOND--e1727252949573.png"
+                        alt="SoloTofs Cars"
+                        className="h-14 w-auto cursor-pointer hover:opacity-90 transition-opacity"
+                    />
+                </Link>
 
-                {/* Navigation desktop */}
                 <nav className="hidden md:flex gap-8 text-sm font-semibold tracking-wide items-center">
-                    <a href="/" className="text-[#3fa0ff] hover:text-[#5ab4ff]">
-                        ACCUEIL
-                    </a>
-                    <a href="/simulateur" className="hover:text-[#3fa0ff]">
-                        SIMULER MES GAINS
-                    </a>
-                    <a href="/#reprogrammation" className="hover:text-[#3fa0ff]">
-                        REPROGRAMMATION MOTEUR
-                    </a>
-                    <a href="/#clef" className="hover:text-[#3fa0ff]">
-                        CLEF
-                    </a>
-
-                    {/* ✅ Nouveau lien File Service */}
-                    <a
-                        href="/file-service"
-                        className="flex items-center gap-1 hover:text-[#3fa0ff] transition-colors"
-                    >
-                        <Server size={16} className="text-[#3fa0ff]" />
-                        FILE SERVICE
-                    </a>
-
-                    <a href="/#contact" className="hover:text-[#3fa0ff]">
-                        CONTACT
-                    </a>
+                    {links.map((link) => (
+                        <a
+                            key={link.href}
+                            href={link.href}
+                            className={link.href === "/" ? "text-[#3fa0ff] hover:text-[#5ab4ff]" : "hover:text-[#3fa0ff]"}
+                        >
+                            {link.label}
+                        </a>
+                    ))}
                 </nav>
 
-                {/* Bouton principal */}
                 <a
                     href="/#contact"
                     className="hidden sm:inline-flex items-center rounded-full bg-[#3fa0ff] text-[#0b0e13] px-5 py-2.5 font-semibold hover:bg-[#5ab4ff] transition-colors"
                 >
-                    Nous contacter
+                    Demander un devis
                 </a>
 
-                {/* Menu mobile */}
-                <button className="md:hidden p-2 text-white" onClick={() => setOpen(!open)}>
+                <button className="md:hidden p-2 text-white" onClick={() => setOpen(!open)} aria-label="Menu">
                     {open ? <X size={26} /> : <Menu size={26} />}
                 </button>
             </div>
 
-            {/* ─── Menu mobile ─── */}
             {open && (
                 <div className="md:hidden bg-[#0b0e13]/95 border-t border-white/10 backdrop-blur-sm">
                     <nav className="flex flex-col items-center gap-4 py-6 text-sm font-semibold tracking-wide">
-                        <a href="/" onClick={() => setOpen(false)} className="text-[#3fa0ff]">
-                            ACCUEIL
-                        </a>
-                        <a href="/simulateur" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
-                            SIMULER MES GAINS
-                        </a>
-                        <a href="/#reprogrammation" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
-                            REPROGRAMMATION MOTEUR
-                        </a>
-                        <a href="/#clef" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
-                            CLEF
-                        </a>
-                        {/* File Service mobile */}
-                        <a
-                            href="/file-service"
-                            onClick={() => setOpen(false)}
-                            className="hover:text-[#3fa0ff] flex items-center gap-1"
-                        >
-                            <Server size={16} className="text-[#3fa0ff]" />
-                            FILE SERVICE
-                        </a>
-                        <a href="/#contact" onClick={() => setOpen(false)} className="hover:text-[#3fa0ff]">
-                            CONTACT
-                        </a>
+                        {links.map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                onClick={() => setOpen(false)}
+                                className={link.href === "/" ? "text-[#3fa0ff]" : "hover:text-[#3fa0ff]"}
+                            >
+                                {link.label}
+                            </a>
+                        ))}
 
                         <div className="pt-4 border-t border-white/10 w-2/3 text-center text-neutral-400 text-sm">
-                            <p>📍 44 Impasse Ampère, 73200 Gilly-sur-Isère</p>
+                            <p>44 Impasse Ampere, 73200 Gilly-sur-Isere</p>
                             <a
                                 href={`tel:${phone}`}
                                 className="block mt-2 text-[#3fa0ff] hover:text-[#5ab4ff]"
                             >
-                                📞 +33 4 23 32 41 04
+                                +33 4 23 32 41 04
                             </a>
                         </div>
                     </nav>
