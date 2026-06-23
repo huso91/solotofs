@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -121,6 +122,23 @@ export default function RootLayout({
                 <meta property="og:image" content="https://solotofs-cars.fr/shareimage.webp" />
                 <meta property="og:site_name" content="SoloTofs Cars" />
                 <meta name="theme-color" content="#0b0e13" />
+                <meta
+                    name="google-site-verification"
+                    content="ommAe_hpfJK-R3MnWjo9vZczHf7X-mIa2pnJJAs8GLA"
+                />
+
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=AW-18051407127"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-ads-tag" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-18051407127');
+                    `}
+                </Script>
 
                 <script
                     type="application/ld+json"
