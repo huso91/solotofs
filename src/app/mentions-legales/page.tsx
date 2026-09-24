@@ -25,7 +25,7 @@ export default function MentionsLegalesPage() {
                         <strong>SoloTofs Cars SARL</strong><br />
                         SIRET : 980 921 654 00011<br />
                         Siège social : 44 Impasse Ampère, 73200 Gilly-sur-Isère, France.<br />
-                        Directeur de la publication : <strong>Rahman Özer</strong><br />
+                        Directeur de la publication : <strong>Batikan OZKAN</strong><br />
                         Téléphone : +33 4 23 32 41 04<br />
                         Email : contact@solotofscars.fr
                     </p>

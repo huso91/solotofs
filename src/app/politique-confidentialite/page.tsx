@@ -100,7 +100,7 @@ export default function PolitiqueConfidentialitePage() {
                 <section>
                     <h2 className="text-xl font-semibold">9. Responsable du traitement</h2>
                     <p>
-                        Le responsable du traitement des données est <strong>Rahman Özer</strong>, gérant de la
+                        Le responsable du traitement des données est <strong>Batikan OZKAN</strong>, gérant de la
                         société <strong>SoloTofs Cars SARL</strong> - SIRET 980 921 654 00011 - 44 Impasse Ampère,
                         73200 Gilly-sur-Isère, France.
                     </p>
